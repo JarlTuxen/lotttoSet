@@ -1,9 +1,7 @@
 package dk.kea;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-import java.util.TreeSet;
+import java.net.InetSocketAddress;
+import java.util.*;
 
 public class Main {
 
@@ -27,13 +25,12 @@ public class Main {
         TreeSet<Integer> rigtigeEkstra = new TreeSet<>(kupon); //lav en kopi
         rigtigeEkstra.retainAll(trukneEkstra); //behold kun trukne tillægstal
 
-        System.out.println();
+
         System.out.println("Check af kupon: " + kupon);
-        System.out.println();
         System.out.println("Udtrukne tal "+ trukneTal + trukneEkstra);
-        System.out.println();
         System.out.println("Vindertal: " + rigtigeTal.size() + ": " + rigtigeTal) ;
         System.out.println("Tillægstal: " + rigtigeEkstra.size() + ": " + rigtigeEkstra);
+        System.out.println();
     }
 
     public static void main(String[] args) {
@@ -58,11 +55,12 @@ public class Main {
         System.out.println("Test checkmetode med rigtig kupon");
         checkKupon(tkupon, tvinderSet, tekstraSet);
 
-        Set<Integer> vinderTal = genererLottoTal(5);
-        Set<Integer> ekstraTal = genererLottoTal(2);
+        for (int i=0;i<5;i++) {
+            Set<Integer> vinderTal = genererLottoTal(5);
+            Set<Integer> ekstraTal = genererLottoTal(2);
 
-        checkKupon(tkupon, vinderTal, ekstraTal);
-
+            checkKupon(tkupon, vinderTal, ekstraTal);
+        }
 
     }
 }
