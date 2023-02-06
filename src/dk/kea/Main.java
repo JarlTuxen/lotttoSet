@@ -6,6 +6,8 @@ import java.util.*;
 public class Main {
 
     private static final int MAX_TAL = 50;
+    private static final int ANTAL_VINDERTAL = 5;
+    private static final int ANTAL_EKSTRATAL = 2;
 
     public static Set<Integer> genererLottoTal(int antal) {
         Set<Integer> talSet = new TreeSet<>();
@@ -56,8 +58,8 @@ public class Main {
         checkKupon(tkupon, tvinderSet, tekstraSet);
 
         for (int i=0;i<5;i++) {
-            Set<Integer> vinderTal = genererLottoTal(5);
-            Set<Integer> ekstraTal = genererLottoTal(2);
+            Set<Integer> vinderTal = genererLottoTal(ANTAL_VINDERTAL);
+            Set<Integer> ekstraTal = genererLottoTal(ANTAL_EKSTRATAL);
 
             checkKupon(tkupon, vinderTal, ekstraTal);
         }
