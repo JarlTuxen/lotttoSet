@@ -60,6 +60,19 @@ public class Main {
         for (int i=0;i<5;i++) {
             Set<Integer> vinderTal = genererLottoTal(ANTAL_VINDERTAL);
             Set<Integer> ekstraTal = genererLottoTal(ANTAL_EKSTRATAL);
+            //mangler check for duplikat mellem vinderTal og ekstraTal
+            //kan gøres ved at checke om vinderTal.retainsAll(ekstraTal).size()==0
+            boolean duplikat = true;
+            while (duplikat){
+                Set<Integer> checkDuplikat = new TreeSet<>(vinderTal);
+                checkDuplikat.retainAll(ekstraTal);
+                if (checkDuplikat.size()>0){
+                    ekstraTal = genererLottoTal(ANTAL_EKSTRATAL);
+                }
+                else{
+                    duplikat = false;
+                }
+            }
 
             checkKupon(tkupon, vinderTal, ekstraTal);
         }
